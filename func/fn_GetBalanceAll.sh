@@ -51,7 +51,7 @@ einfo "Here's your balances per bundle"
 if [ "$loglvl" = '-G' ]; then
   #jq -c .result.devices[0].balanceDetails.data[] | balance,bundletype  <<< $body
   #jq -c '.result.devices[0].balanceDetails.data[] | {balanceDescription, balance}' <<< $body
-  printf '%s\n' "$body" | '.result.devices[0].balanceDetails.data[] | {balanceDescription, balance}'
+  printf '%s\n' "$body" | jq -c '.result.devices[0].balanceDetails.data[] | {balanceDescription, balance}'
 fi
 
 }
