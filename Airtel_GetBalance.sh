@@ -5,12 +5,15 @@ URL='https://airtel.co.zm/broadband/be/api/hbb/user/v1/login'
 user="$1"
 pass="$2"
 loglvl="$3"
+SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
+#echo "Script directory: $SCRIPT_DIR"
 
 # Load in the functions
-source ./func/fn_logging.sh "$3"
-source ./func/fn_BuildLogin.sh
-source ./func/fn_GetLoginToken.sh
-source ./func/fn_GetBalanceAll.sh
+
+source $SCRIPT_DIR/func/fn_logging.sh "$3"
+source $SCRIPT_DIR/func/fn_BuildLogin.sh
+source $SCRIPT_DIR/func/fn_GetLoginToken.sh
+source $SCRIPT_DIR/func/fn_GetBalanceAll.sh
 
 edebug "Variable passed in postion 1: $1"
 edebug "Variable passed in postion 2: $2"
