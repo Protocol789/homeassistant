@@ -1,7 +1,7 @@
 #/bin/bash
 
-ver=0.1
-rel=v0.1.tar.gz
+ver=0.2
+rel=v0.2.tar.gz
 
 # Get release
 echo "Grabbing release from Github"
