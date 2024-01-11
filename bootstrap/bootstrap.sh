@@ -19,6 +19,6 @@ cp ./homeassistant-$ver/Airtel_GetBalance.sh ./
 # Clean up
 echo "Clean up"
 rm "$rel"
-rm -rf homeassistant-0.1/
+rm -rf homeassistant-$ver/
 
 echo "--------- DONE -----------"
