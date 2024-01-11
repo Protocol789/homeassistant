@@ -21,8 +21,8 @@ edebug "Login: HTTP code response $http_code"
 # Error checking for response code
 if [ $http_code != 200 ]; then
   eerror "Login: HTTP response code is non-200!"
-  echo '{"status":"503"}'
-  exit 20
+  echo '{"StatusCode":"503", "Message":"Airtel login API gateway is sh1t..."}'
+  exit 0
 else
   einfo "Login: HTTP response of 200 OK!"
 fi
