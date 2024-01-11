@@ -16,14 +16,15 @@ GetLogin="$(curl --location "$1" \
 
 # Extract http response header
 http_code="${GetLogin:${#GetLogin}-3}"
-edebug "HTTP code response $http_code"
+edebug "Login: HTTP code response $http_code"
 
 # Error checking for response code
 if [ $http_code != 200 ]; then
-  eerror "HTTP response code is non-200!"
-  exit 10
+  eerror "Login: HTTP response code is non-200!"
+  echo '{"status":"503"}'
+  exit 20
 else
-  einfo "HTTP response of 200 OK!"
+  einfo "Login: HTTP response of 200 OK!"
 fi
 
 # Extract response body
@@ -33,7 +34,7 @@ else
   body="${GetLogin:0:${#GetLogin}-3}"
 fi
 
-edebug "Body reponse is:"
+edebug "Login: Body reponse is:"
 #edebug "$body"
 
 if [ "$2" = '-G' ]; then

@@ -27,7 +27,8 @@ edebug "HTTP code response $http_code"
 # Error checking for response code
 if [ $http_code != 200 ]; then
   eerror "HTTP response code is non-200!"
-  exit 10
+
+  exit 0
 else
   einfo "Get Balance HTTP response of 200 OK!"
 fi
@@ -51,7 +52,11 @@ einfo "Here's your balances per bundle"
 if [ "$loglvl" = '-G' ]; then
   #jq -c .result.devices[0].balanceDetails.data[] | balance,bundletype  <<< $body
   #jq -c '.result.devices[0].balanceDetails.data[] | {balanceDescription, balance}' <<< $body
-  printf '%s\n' "$body" | jq -c '.result.devices[0].balanceDetails.data[] | {balanceDescription, balance}'
+  printf '%s\n' "$body" | jq -r '.result.devices[0].balanceDetails.totalDataBalance'
 fi
+
+totalbalance=$(printf '%s\n' "$body" | jq -r '.result.devices[0].balanceDetails.totalDataBalance')
+
+# echo $totalbalance
 
 }

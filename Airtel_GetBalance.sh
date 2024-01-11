@@ -36,7 +36,8 @@ status=$(echo "$body" | jq -r '.status')
 
 if [ $status != 'SUCCESS' ]; then
   eerror "Airtel API returned 200 but there is an error in the response packet"
-  exit 20
+  echo $body
+  exit 0
 else
   edebug "Status code of SUCCCESS from Airtel login API response packet"
 fi
@@ -52,4 +53,16 @@ einfo "Extracted login token"
 # Make get balance call to Airtel 
 GetBalance "$loglvl" "$body"
 
+# Split out balance into integer and type
+bal_int=$(echo $totalbalance | awk '{print $1}')
+bal_unit=$(echo $totalbalance | awk '{print $2}')
+edebug "Balance integer is |$bal_int| and the unit of mesurement is |$bal_unit|"
+
+json=$(cat <<EOF
+{"balance":"$bal_int", "unit":"$bal_unit", "message":"success", "status":"SUCCESS", "statusCode":200}
+EOF
+)
+
+# Output value and exit
+echo $json
 exit 0
