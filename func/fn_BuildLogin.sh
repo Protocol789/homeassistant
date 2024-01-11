@@ -1,4 +1,4 @@
-#/bin/bash
+#/bin/sh
 
 # Builds the login JSON packet for body of the REST call
 
@@ -11,7 +11,8 @@ edebug "This is login payload:"
 #edebug "${loginPayload}"
 
 if [ "$3" = '-G' ]; then
-  jq -c <<< $loginPayload
+#  jq -c <<< $loginPayload
+  printf '%s\n' "$loginPayload" | jq -c
 fi
 
 }

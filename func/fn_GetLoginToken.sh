@@ -1,4 +1,4 @@
-#/bin/bash
+#/bin/sh
 
 #source ./fn_logging.sh "$3"
 
@@ -37,7 +37,8 @@ edebug "Body reponse is:"
 #edebug "$body"
 
 if [ "$2" = '-G' ]; then
-  jq -c <<< $body
+#  jq -c <<< $body
+  printf '%s\n' "$body" | jq -c
 fi
 
 }
