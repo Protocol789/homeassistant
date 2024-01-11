@@ -7,10 +7,10 @@ pass="$2"
 loglvl="$3"
 
 # Load in the functions
-source ./fn_logging.sh "$3"
-source ./fn_BuildLogin.sh
-source ./fn_GetLoginToken.sh
-source ./fn_GetBalanceAll.sh
+source ./func/fn_logging.sh "$3"
+source ./func/fn_BuildLogin.sh
+source ./func/fn_GetLoginToken.sh
+source ./func/fn_GetBalanceAll.sh
 
 edebug "Variable passed in postion 1: $1"
 edebug "Variable passed in postion 2: $2"
