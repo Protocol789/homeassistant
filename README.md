@@ -15,7 +15,7 @@ Open your fav *nix terminal
 ```sh 
 wget -q https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstrap/bootstrap.sh -O- | sh
 ```
-2. Run the Get balance command below with Airtel web credntials in place of the $variables below
+2. Run the Get balance command below with your Airtel web credentials in place of the $variables below
 ```sh
 AirtelTracker/Airtel_GetBalance.sh $username $password -V
 ```
@@ -40,21 +40,21 @@ AirtelTracker/Airtel_GetBalance.sh $username $password -V
     * [Advanced SSH & Web Terminal](https://my.home-assistant.io/redirect/supervisor_addon/?addon=a0d7b954_ssh)
 
 ### Usage 
-In these installation steps, the Addons in prerequistates are used however you can use whatver you are most comfortable with
+In these installation steps, the optional  prerequistates are used however you can use whatever you are most comfortable with
 
 1. Jump into a [terminal](https://my.home-assistant.io/redirect/supervisor_addon/?addon=a0d7b954_ssh ) (click open web gui) session on the Home Assitant instance and move into the `/config` directory via
 ```sh
 cd config/
 ``` 
-2. Run the bootstrap script which will download the latest release for you 
+2. Run the bootstrap command which will download the latest release for you 
 ```sh 
 wget -q https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstrap/bootstrap.sh -O- | sh
 ```
 3. Time to test!  
-   Get the Airtel credentials and plug them into the script where `$username` and `$password` are your Airtel credentials respectively  
+   Get the Airtel credentials and plug them into the script below where `$username` and `$password` are your Airtel credentials respectively  
   
    Command to run  
-   `./Airtel_GetBalance.sh $username $password -V`  
+   `AirtelTracker/Airtel_GetBalance.sh $username $password -V`  
    Response
    ```sh
    2024-01-12 01:12:33 - INFO ---- Running airtel login call
@@ -67,9 +67,9 @@ wget -q https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstr
    2024-01-12 01:12:36 - INFO ---- Here's your balances per bundle
    {"balance":"8.45","unit":"GB","message":"success","status":"SUCCESS","statusCode":200}
    ```
-  4. Now its time to edit the `configuration.yaml` in Home Assitant to add the sensor entity. 
-     Head over to  [File editor](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_configurator) (click open web gui) or open the file in your favourite text editor
-  5. Place the following yaml into the file and ensure your update the `$username` and `$pasword` values  
+  4. Now its time to add the sensor entity into Home Assistant so that the JSON packet can be consumed and eventually visulized.  
+  Open up the `configuration.yaml` in [File editor](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_configurator) (click open web gui) or open the file in your favourite text editor
+  6. Place the following yaml into the configuration.yaml file and ensure your update the `$username` and `$pasword` values  
        * The `scan_interval` is set to 30 minutes but can be set to any value you need (in seconds)  
        * The entity `name` can be whatever you like
      
@@ -95,10 +95,10 @@ wget -q https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstr
      ![image](https://github.com/Protocol789/homeassistant/assets/44654683/7e1fd33f-0f9b-4258-8a89-28ffd553f28a)
 
  
-  8. Once restarted head over to (Developer Tools States)[https://my.home-assistant.io/redirect/developer_states/] and filter for your new entity
+  8. Once restarted head over to [Developer Tools States](https://my.home-assistant.io/redirect/developer_states/) and filter for your new entity
      Note the json attributes now show the total data balance avaliable on your Airtel bundle! 👏 
      ![image](https://github.com/Protocol789/homeassistant/assets/44654683/78f4ed18-cf03-4838-8652-f4b043816e32)
-  9. It's now time to expose the data bundle balance via a (helper entity)[https://my.home-assistant.io/redirect/helpers/] which will reference the attribute and allow you to add it to a dashboard
+  9. It's now time to expose the data bundle balance via a [helper entity](https://my.home-assistant.io/redirect/helpers/) which will reference the attribute and allow you to add it to a dashboard
       Click Create Helper in bottom right corner
   10. Click `Template`  
 ![image](https://github.com/Protocol789/homeassistant/assets/44654683/b45a653d-d400-48fc-b97b-d6c6eb0bcdb1)
