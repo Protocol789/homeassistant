@@ -77,7 +77,7 @@ wget -q https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstr
        - sensor:
            name: Airtel
            scan_interval: 1800      
-           command: sh /config/airtel/Airtel_GetBalance.sh $username $password
+           command: sh /config/AirtelTracker/Airtel_GetBalance.sh $username $password
            value_template: "{{ value_json.status }}"
            json_attributes:
              - message
