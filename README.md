@@ -9,24 +9,27 @@ The data bundle balance is then exposed for use in dashboarding and graphing in 
 ### Quickstart
 
 1. Run the bootstrap script
-2. Run the Get balance script with Airtel web credntials   
 ```sh 
 wget https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstrap/bootstrap.sh -O- | sh
-./Airtel_GetBalance.sh $username $password -V
 ```
+2. Run the Get balance script with Airtel web credntials
+```sh
+./Airtel_GetBalance.sh $username $password -V
+```    
+
 
 ### Requirements
 - Home Assistant
 - SSH access
 - Access to edit Home Assistant confguration.yaml file
 
-  The scripts were tested on following systems however any *nix system should work  
-    * Home Assistant Operating System (2024)  
-    * Ubuntu 22.04.2 LTS (WSL)
+The scripts were tested on following systems however any *nix system should work  
+  * Home Assistant Operating System (2024)
+  * Ubuntu 22.04.2 LTS (WSL)
 
 ### Prerequisates 
 * Required
-    * Home Assitant
+    * Home Assistant
     * Your airtel web username and password used to login to [Airtel](https://airtel.co.zm/broadband/#/user/login) broadband portal
 * Optional (Recommended)
     * Home Assistant Add-ons
