@@ -51,8 +51,8 @@ wget https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstrap/
    2024-01-12 01:12:36 - INFO ---- Here's your balances per bundle
    {"balance":"8.45","unit":"GB","message":"success","status":"SUCCESS","statusCode":200}
    ```
-  4. Now its time to edit the `configuration.yaml` to add the entity.
-     Head over to File Editor Addon or open the file in your favoruite text editor
+  4. Now its time to edit the `configuration.yaml` in Home Assitant to add the sensor entity.
+     Head over to (File Editor Addon)[https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_configurator] or open the file in your favoruite text editor
   5. Place the following yaml into the file and ensure your update the `$username` and `$pasword`  
        * The `scan_interval` is set to 30 minutes but can be set to any value you need (in seconds)  
        * The entity `name` can be whatever you like
