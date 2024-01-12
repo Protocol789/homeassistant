@@ -12,10 +12,12 @@ The data bundle balance is then exposed for use in dashboarding and graphing in 
 ```sh 
 wget https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstrap/bootstrap.sh -O- | sh
 ```
-2. Run the Get balance script with Airtel web credntials
+2. Run the Get balance script with Airtel web credntials in place of variables
 ```sh
 ./Airtel_GetBalance.sh $username $password -V
-```    
+```
+3. Data balances returned in JSON packet  
+![image](https://github.com/Protocol789/homeassistant/assets/44654683/25e30bd1-73c2-4be6-b6da-81e6e542e8cc)
 
 
 ### Requirements
@@ -23,9 +25,6 @@ wget https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstrap/
 - SSH access
 - Access to edit Home Assistant confguration.yaml file
 
-The scripts were tested on following systems however any *nix system should work  
-  * Home Assistant Operating System (2024)
-  * Ubuntu 22.04.2 LTS (WSL)
 
 ### Prerequisates 
 * Required
@@ -179,5 +178,11 @@ The base script can be run with a few arguments for logging verbosity.
 
   </details>
   
+### Compatiblity 
+
+The scripts were tested on following systems however any *nix system should work  
+  * Ubuntu 22.04.2 LTS (WSL)
+  * Home Assistant Operating System (2024)
+    ![image](https://github.com/Protocol789/homeassistant/assets/44654683/0e5a9973-0c7b-42b6-a1d2-eb812e8a306c)
 
 
