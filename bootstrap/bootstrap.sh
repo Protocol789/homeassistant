@@ -8,6 +8,11 @@ ver=$(echo $latesttag | cut -c 2-)
 
 echo "--------- START -----------"
 
+if [ -d "AirtelTracker" ]; then
+  echo "AirtelTracker folder already exists, please remove it first and then rerun the command"
+  exit 40
+fi
+
 echo "Creating folder for AirtelTracker..."
 mkdir AirtelTracker
 cd AirtelTracker/
@@ -17,11 +22,24 @@ echo "Grabbing AirtelTracker release $ver from Github..."
 wget -q --show-progress "$dlURL"
 
 if [ $? -eq 0 ]; then
-echo "Successfully downloaded release $ver"
+  echo "Successfully downloaded release $ver!"
+else
+  echo "ERROR: Release from Github did not download"
+  echo "Exiting.............."
+  exit 10
 fi
 
 echo "Decompressing archive..."
 tar -xzf "$dlFilename"
+
+if [ $? -eq 0 ]; then
+  echo "Successfully extracted release!"
+else
+  echo "ERROR: Release was not extracted successfully"
+  echo "Exiting.............."
+  exit 20
+fi
+
 
 # Sort folders
 echo "Sorting folders out...."
