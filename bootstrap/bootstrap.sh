@@ -10,7 +10,7 @@ ver=$(echo $latesttag | cut -c 2-)
 echo "Grabbing release from Github"
 wget "$dlURL"
 
-echo "Decrompress archive"
+echo "Decompress archive"
 tar -xvzf "$dlFilename"
 
 # Sort folders
