@@ -17,7 +17,7 @@ wget -q https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstr
 ```
 2. Run the Get balance command below with Airtel web credntials in place of the $variables below
 ```sh
-AirtelTrackr/Airtel_GetBalance.sh $username $password -V
+AirtelTracker/Airtel_GetBalance.sh $username $password -V
 ```
 3. Data balances returned in JSON packet  
 ![image](https://github.com/Protocol789/homeassistant/assets/44654683/25e30bd1-73c2-4be6-b6da-81e6e542e8cc)
