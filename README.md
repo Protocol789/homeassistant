@@ -44,7 +44,7 @@ In these installation steps, the Addons in prerequistates are used however you c
 ```sh
 cd config/
 ``` 
-3. Run the bootstrap script which will download the latest release for you 
+2. Run the bootstrap script which will download the latest release for you 
 ```sh 
 wget -q https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstrap/bootstrap.sh -O- | sh
 ```
