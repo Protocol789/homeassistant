@@ -1,6 +1,11 @@
 
 ## AirtelTracker
 AirtelTracker is shell script for accessing data bundle balances for your 4G router plan into Home Assistant. 
+The script is then called from a `command_line` sensor in Home Assitant which periocally runs on a scan interval.  
+The balance is then exposed for use in dashboarding and graphing in Home Assistant
+<img align="right" source="![image](https://github.com/Protocol789/homeassistant/assets/44654683/10d06fb2-a1fe-40a1-a566-e282af098ee3)"/>
+
+
 ### Quickstart
 Run the bootstrap script which will download the latest release for you 
 ```sh 
@@ -13,6 +18,7 @@ wget https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstrap/
 
 ### Prerequisates 
 * Required
+    * Home Assitant
     * Your airtel web username and password used to login to [Airtel](https://airtel.co.zm/broadband/#/user/login) broadband portal
 * Optional (Recommended)
     * Home Assistant Add-ons
@@ -20,7 +26,7 @@ wget https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstrap/
     * [Advanced SSH & Web Terminal](https://my.home-assistant.io/redirect/supervisor_addon/?addon=a0d7b954_ssh)
 
 ### Usage 
-In these instalaltion steps, the Addons in prerequistates are used however you can use whatver you are most comfortable with
+In these installation steps, the Addons in prerequistates are used however you can use whatver you are most comfortable with
 
 1. Jump into a terminal session on the Home Assitant instance and move into the /config directory via `cd config/` 
 2. Run the bootstrap script which will download the latest release for you 
@@ -76,12 +82,27 @@ wget https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstrap/
   8. Once restarted head over to (Developer Tools States)[https://my.home-assistant.io/redirect/developer_states/] and filter for your new entity
      Note the json attributes now show the total data balance avaliable on your Airtel bundle! 👏 
      ![image](https://github.com/Protocol789/homeassistant/assets/44654683/78f4ed18-cf03-4838-8652-f4b043816e32)
-
-
+  9. It's now time to expose the data bundle balance via a (helper entity)[https://my.home-assistant.io/redirect/helpers/] which will reference the attribute and allow you to add it to a dashboard
+      Click Create Helper in bottom right corner
+  10. Click `Template`  
+![image](https://github.com/Protocol789/homeassistant/assets/44654683/b45a653d-d400-48fc-b97b-d6c6eb0bcdb1)
+  11. Select `Template a sensor`  
+![image](https://github.com/Protocol789/homeassistant/assets/44654683/f6fd64ca-dac3-40f9-9044-b33289a7b3dd)
+  12. New sensor details  
+        
+      Fill in a name for the new sensor
+         
+      The `state template` will be refercing the new entitiy we created in the configuration.yml and extracting the `balance` attribute out  
+      `` {{ state_attr( 'sensor.airtel_new' , 'balance' ) }} ``
+        
+      Select the unit of mesasurement, device class and State class and click `Submit`  
+      ![image](https://github.com/Protocol789/homeassistant/assets/44654683/5e44fb54-6e6b-4e30-8559-6669dabc0966)
+  13. Add the new sensor to a dashboard of your choosing!
+  14. ![image](https://github.com/Protocol789/homeassistant/assets/44654683/da959880-cbb5-43d1-80de-d2358bb9be1e)
 
 
 ### Config
-
+TODO
 ### Debugging
 The base script can be run with a few arguments for logging verbosity.
 * `-s` Silent (Default mode)
