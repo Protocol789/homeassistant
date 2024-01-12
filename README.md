@@ -1,20 +1,28 @@
 
 ## AirtelTracker
-AirtelTracker is shell script for accessing data bundle balances for your 4G router plan into Home Assistant. 
-The script is then called from a `command_line` sensor in Home Assitant which periocally runs on a scan interval.  
-The balance is then exposed for use in dashboarding and graphing in Home Assistant
-<img align="right" source="![image](https://github.com/Protocol789/homeassistant/assets/44654683/10d06fb2-a1fe-40a1-a566-e282af098ee3)"/>
+AirtelTracker is shell based script for accessing data bundle balances for your 4G data plan from Airtel into Home Assistant.  
+The script is called from a `command_line` sensor in Home Assitant which periocally runs on a configurable interval    
+The data bundle balance is then exposed for use in dashboarding and graphing in Home Assistant🍾  
+<img align="right" source="![image](https://github.com/Protocol789/homeassistant/assets/44654683/10d06fb2-a1fe-40a1-a566-e282af098ee3)"/>  
 
 
 ### Quickstart
-Run the bootstrap script which will download the latest release for you 
+
+1. Run the bootstrap script
+2. Run the Get balance script with Airtel web credntials   
 ```sh 
 wget https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstrap/bootstrap.sh -O- | sh
+./Airtel_GetBalance.sh $username $password -V
 ```
+
 ### Requirements
 - Home Assistant
 - SSH access
 - Access to edit Home Assistant confguration.yaml file
+
+  The scripts were tested on following systems however any *nix system should work  
+    * Home Assistant Operating System (2024)  
+    * Ubuntu 22.04.2 LTS (WSL)
 
 ### Prerequisates 
 * Required
@@ -52,8 +60,8 @@ wget https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstrap/
    {"balance":"8.45","unit":"GB","message":"success","status":"SUCCESS","statusCode":200}
    ```
   4. Now its time to edit the `configuration.yaml` in Home Assitant to add the sensor entity.
-     Head over to (File Editor Addon)[https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_configurator] or open the file in your favoruite text editor
-  5. Place the following yaml into the file and ensure your update the `$username` and `$pasword`  
+     Head over to [File Editor Addon](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_configurator) or open the file in your favourite text editor
+  5. Place the following yaml into the file and ensure your update the `$username` and `$pasword` values  
        * The `scan_interval` is set to 30 minutes but can be set to any value you need (in seconds)  
        * The entity `name` can be whatever you like
      
