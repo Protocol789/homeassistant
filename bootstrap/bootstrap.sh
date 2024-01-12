@@ -13,8 +13,12 @@ mkdir AirtelTracker
 cd AirtelTracker/
 
 # Get release
-echo "Grabbing release from Github..."
+echo "Grabbing AirtelTracker release $ver from Github..."
 wget -q --show-progress "$dlURL"
+
+if [ $? -eq 0 ]; then
+echo "Successfully downloaded release $ver"
+fi
 
 echo "Decompressing archive..."
 tar -xzf "$dlFilename"
