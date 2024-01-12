@@ -1,9 +1,11 @@
 
 ## AirtelTracker
+   
 AirtelTracker is shell based script for accessing data bundle balances for your 4G data plan from Airtel into Home Assistant.  
-The script is called from a `command_line` sensor in Home Assitant which periocally runs on a configurable interval    
+The script is called from a `command_line` sensor in Home Assitant which periocally runs on a configurable interval  
 The data bundle balance is then exposed for use in dashboarding and graphing in Home Assistant🍾  
-<img align="right" source="![image](https://github.com/Protocol789/homeassistant/assets/44654683/10d06fb2-a1fe-40a1-a566-e282af098ee3)"/>  
+
+<img  height="150" src="https://raw.githubusercontent.com/Protocol789/homeassistant/main/.github/balance.png"/>     <img  height="150" src="https://raw.githubusercontent.com/Protocol789/homeassistant/main/.github/gauge.png"/> <img height="150" src="https://raw.githubusercontent.com/Protocol789/homeassistant/main/.github/card.png"/> 
 
 
 ### Quickstart
