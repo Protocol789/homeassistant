@@ -63,6 +63,10 @@ json=$(cat <<EOF
 EOF
 )
 
+if [ $loglvl = "-V" ]; then
+  printf '%s\n' "$json" | jq -c
+fi
+
 # Output value and exit
 echo $json
 exit 0
