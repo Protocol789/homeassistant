@@ -10,13 +10,14 @@ The data bundle balance is then exposed for use in dashboarding and graphing in 
 
 ### Quickstart
 
+Open your fav *nix terminal  
 1. Run the bootstrap script
 ```sh 
 wget -q https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstrap/bootstrap.sh -O- | sh
 ```
 2. Run the Get balance command below with Airtel web credntials in place of the $variables below
 ```sh
-./Airtel_GetBalance.sh $username $password -V
+AirtelTrackr/Airtel_GetBalance.sh $username $password -V
 ```
 3. Data balances returned in JSON packet  
 ![image](https://github.com/Protocol789/homeassistant/assets/44654683/25e30bd1-73c2-4be6-b6da-81e6e542e8cc)
@@ -25,7 +26,8 @@ wget -q https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstr
 ### Requirements
 - Home Assistant
 - SSH access
-- Access to edit Home Assistant confguration.yaml file
+- Access to edit Home Assistant confguration.yaml file  
+- Internet access from Home Assistant
 
 
 ### Prerequisates 
