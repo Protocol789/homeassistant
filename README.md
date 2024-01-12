@@ -12,9 +12,9 @@ The data bundle balance is then exposed for use in dashboarding and graphing in 
 
 1. Run the bootstrap script
 ```sh 
-wget https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstrap/bootstrap.sh -O- | sh
+wget -q https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstrap/bootstrap.sh -O- | sh
 ```
-2. Run the Get balance script with Airtel web credntials in place of variables
+2. Run the Get balance command below with Airtel web credntials in place of the $variables below
 ```sh
 ./Airtel_GetBalance.sh $username $password -V
 ```
@@ -40,11 +40,13 @@ wget https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstrap/
 ### Usage 
 In these installation steps, the Addons in prerequistates are used however you can use whatver you are most comfortable with
 
-1. Jump into a terminal session on the Home Assitant instance and move into the /config directory via `cd config/` 
-2. Run the bootstrap script which will download the latest release for you 
-```sh 
+1. Jump into a [terminal](https://my.home-assistant.io/redirect/supervisor_addon/?addon=a0d7b954_ssh ) (click open web gui) session on the Home Assitant instance and move into the `/config` directory via
+```sh
 cd config/
-wget https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstrap/bootstrap.sh -O- | sh
+``` 
+3. Run the bootstrap script which will download the latest release for you 
+```sh 
+wget -q https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstrap/bootstrap.sh -O- | sh
 ```
 3. Time to test!  
    Get the Airtel credentials and plug them into the script where `$username` and `$password` are your Airtel credentials respectively  
@@ -63,8 +65,8 @@ wget https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstrap/
    2024-01-12 01:12:36 - INFO ---- Here's your balances per bundle
    {"balance":"8.45","unit":"GB","message":"success","status":"SUCCESS","statusCode":200}
    ```
-  4. Now its time to edit the `configuration.yaml` in Home Assitant to add the sensor entity.
-     Head over to [File Editor Addon](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_configurator) or open the file in your favourite text editor
+  4. Now its time to edit the `configuration.yaml` in Home Assitant to add the sensor entity. 
+     Head over to  [File editor](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_configurator) (click open web gui) or open the file in your favourite text editor
   5. Place the following yaml into the file and ensure your update the `$username` and `$pasword` values  
        * The `scan_interval` is set to 30 minutes but can be set to any value you need (in seconds)  
        * The entity `name` can be whatever you like
