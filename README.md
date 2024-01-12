@@ -74,7 +74,7 @@ wget https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstrap/
      ```
       ![image](https://github.com/Protocol789/homeassistant/assets/44654683/cd6ea0f7-536c-4294-91bd-2c2b150919ea)
 
-  7. Now restart Home Assstant
+  7. Now do a FULL restart Home Assistant instance so the new configuration file and entity is loaded up   
      This can be done directly from File Editor  
      ![image](https://github.com/Protocol789/homeassistant/assets/44654683/7e1fd33f-0f9b-4258-8a89-28ffd553f28a)
 
