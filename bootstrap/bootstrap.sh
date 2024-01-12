@@ -6,15 +6,21 @@ dlURL="https://github.com/Protocol789/homeassistant/archive/refs/tags/$latesttag
 dlFilename="$latesttag.tar.gz"
 ver=$(echo $latesttag | cut -c 2-)
 
-# Get release
-echo "Grabbing release from Github"
-wget "$dlURL"
+echo "--------- START -----------"
 
-echo "Decompress archive"
-tar -xvzf "$dlFilename"
+echo "Creating folder for AirtelTracker..."
+mkdir AirtelTracker
+cd AirtelTracker/
+
+# Get release
+echo "Grabbing release from Github..."
+wget -q --show-progress "$dlURL"
+
+echo "Decompressing archive..."
+tar -xzf "$dlFilename"
 
 # Sort folders
-echo "Sorting folders out"
+echo "Sorting folders out...."
 mkdir func
 cp ./homeassistant-$ver/func/* func/
 cp ./homeassistant-$ver/Airtel_GetBalance.sh ./
