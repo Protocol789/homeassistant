@@ -30,36 +30,6 @@ Open your fav *nix terminal
 
 ### Overview
 
-#### Architecture
-
-##### High level flow
-
-```mermaid
-flowchart LR;
-    ha["Home Assistant"]
-    at["AirtelTracker"]
-    ai["Airtel API"]
-    ha <-- `command line` --> at <-- REST API --> ai 
-    
-```
-
-##### API message flow
-
-```mermaid
-sequenceDiagram
-    participant A as Home Assistant
-    participant B as Airtel Tracker
-    participant C as Airtel API
-    
-    A->>+B: Command_Line processor 
-    B->>+C: Login credentials
-    C->>-B: Login token
-    B->>+C: Get data balance
-    C->>-B: Data balances
-    B->>-A: Return balance
-
-```
-
 ### Requirements
 
 - Home Assistant
@@ -192,9 +162,36 @@ Command to run
 <img src="https://raw.githubusercontent.com/Protocol789/homeassistant/readme-images/.github/images/ha-entitiy-balance.png"  width="300" alt="HA entity card popp with history"/> 
 <!-- ![image](https://github.com/Protocol789/homeassistant/assets/44654683/da959880-cbb5-43d1-80de-d2358bb9be1e) -->
 
-### Config
+### Architecture
 
-TODO
+#### High level flow
+
+```mermaid
+flowchart LR;
+    ha["Home Assistant"]
+    at["AirtelTracker"]
+    ai["Airtel API"]
+    ha <-- `command line` --> at <-- REST API --> ai 
+    
+```
+
+#### API message flow
+
+```mermaid
+sequenceDiagram
+    participant A as Home Assistant
+    participant B as Airtel Tracker
+    participant C as Airtel API
+    
+    A->>+B: Command_Line processor 
+    B->>+C: Login credentials
+    C->>-B: Login token
+    B->>+C: Get data balance
+    C->>-B: Data balances
+    B->>-A: Return balance
+
+```
+
 
 ### Debugging
 
@@ -212,7 +209,7 @@ The base script can be run with a few arguments for logging verbosity.
     ./Airtel_GetBalance.sh $WebUsername $WebPassword 
   ```
 
-  Response
+#### Response
 
   ```sh
   root@zorab-surface:~/Airtel# ./Airtel_GetBalance.sh $WebUsername $WebPassword
