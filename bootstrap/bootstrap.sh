@@ -1,7 +1,13 @@
 #/bin/bash
 
 # Get latest tag
-latesttag=$(curl -s "https://api.github.com/repos/Protocol789/homeassistant/tags" | jq -r '.[0].name')
+#https://gist.github.com/gvenzl/1386755861fb42db492276d3864a378c
+latesttag=$(curl -s https://api.github.com/repos/Protocol789/homeassistant/releases/latest \
+| grep "tag_name" \
+| awk '{ print $2 }' \
+| sed 's/,$//'       \
+| sed 's/"//g' )
+
 dlURL="https://github.com/Protocol789/homeassistant/archive/refs/tags/$latesttag.tar.gz"
 dlFilename="$latesttag.tar.gz"
 ver=$(echo $latesttag | cut -c 2-)
