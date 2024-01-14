@@ -89,7 +89,7 @@ wget -q https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstr
              - unit
  
      ```
-      ![image](https://github.com/Protocol789/homeassistant/assets/44654683/cd6ea0f7-536c-4294-91bd-2c2b150919ea)
+   ![image](https://github.com/Protocol789/homeassistant/assets/44654683/cd6ea0f7-536c-4294-91bd-2c2b150919ea)
 
   7. Now do a FULL restart Home Assistant instance so the new configuration file and entity is loaded up   
      This can be done directly from File Editor  
