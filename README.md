@@ -106,7 +106,8 @@ wget -q https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstr
 ![image](https://github.com/Protocol789/homeassistant/assets/44654683/f6fd64ca-dac3-40f9-9044-b33289a7b3dd)
   12. New sensor details  
         
-      Fill in a name for the new sensor
+      Fill in a name for the new sensor.  
+       [!IMPORTANT] Ensure you reference the name of the sesnor you created in 6.)  
          
       The `state template` will be refercing the new entitiy we created in the configuration.yml and extracting the `balance` attribute out  
       `` {{ state_attr( 'sensor.airtel_new' , 'balance' ) }} ``
