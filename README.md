@@ -7,7 +7,7 @@ Home Assistant calls the script periodically to retrieve the data values.
 
 The data bundle balance is then exposed for use in dashboard and graphing in Home Assistant via a sensor entity🍾  
 
-<img  height="150" src="https://raw.githubusercontent.com/Protocol789/homeassistant/main/.github/balance.png" alt="Data balance" />     <img  height="150" src="https://raw.githubusercontent.com/Protocol789/homeassistant/main/.github/gauge.png" alt="Home Assistant data gauge" /> <img height="150" src="https://raw.githubusercontent.com/Protocol789/homeassistant/main/.github/card.png" alt="Home Assistant entity card"/>
+<img  height="150" src="https://raw.githubusercontent.com/Protocol789/homeassistant/readme-images/.github/images/balance.png" alt="Data balance" />     <img  height="150" src="https://raw.githubusercontent.com/Protocol789/homeassistant/readme-images/.github/images/gauge.png" alt="Home Assistant data gauge" /> <img height="150" src="https://raw.githubusercontent.com/Protocol789/homeassistant/readme-images/.github/images/card.png" alt="Home Assistant entity card"/>
 
 ## QuickStart
 
