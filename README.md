@@ -239,6 +239,6 @@ The scripts were tested on following systems however any *nix system should work
 
 - Ubuntu 22.04.2 LTS (WSL)
 - Home Assistant Operating System (2024)  
-  <img src="https://raw.githubusercontent.com/Protocol7  homeassistant/readme-images/.github/images/ha-version.png"  width="200" alt="Home Assistant version screen"/>  
+  <img src="https://raw.githubusercontent.com/Protocol789/homeassistant/readme-images/.github/images/ha-version.png"  width="200" alt="Home Assistant version screen"/>  
 
     <!-- ![image](https://github.com/Protocol789/homeassistant/assets/44654683/0e5a9973-0c7b-42b6-a1d2-eb812e8a306c) --> 
