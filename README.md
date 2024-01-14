@@ -28,6 +28,38 @@ Open your fav *nix terminal
 3. Data balances returned in JSON packet  
   ![image](https://github.com/Protocol789/homeassistant/assets/44654683/25e30bd1-73c2-4be6-b6da-81e6e542e8cc)
 
+### Overview
+
+#### Architecture
+
+##### High level flow
+
+```mermaid
+flowchart LR;
+    ha["Home Assistant"]
+    at["AirtelTracker"]
+    ai["Airtel API"]
+    ha <-- `command line` --> at <-- REST API --> ai 
+    
+```
+
+##### API message flow
+
+```mermaid
+sequenceDiagram
+    participant A as Home Assistant
+    participant B as Airtel Tracker
+    participant C as Airtel API
+    
+    A->>+B: Command_Line processor 
+    B->>+C: Login credentials
+    C->>-B: Login token
+    B->>+C: Get data balance
+    C->>-B: Data balances
+    B->>-A: Return balance
+
+```
+
 ### Requirements
 
 - Home Assistant
@@ -88,8 +120,8 @@ Command to run
   
 5. Copy the following yaml snippet into Home Assistant's `configuration.yaml` file     <a id="step-6"></a>
 
-   > [!IMPORTANT]
-   > Ensure your update the `$username` and `$password` values  
+> [!IMPORTANT]
+> Ensure your update the `$username` and `$password` values  
 
 - The `scan_interval` is set to 30 minutes but can be set to any value you need (in seconds)  
 - The entity `name` can be whatever you like
@@ -114,7 +146,7 @@ Command to run
 -->  
    <details>
       <Summary>Example config</Summary>
-      <img src="https://raw.githubusercontent.com/Protocol789/homeassistant/readme-images/.github/config-yaml-snippet.png" width="200" alt="Example config.yaml snippet"/>  
+      <img src="https://raw.githubusercontent.com/Protocol789/homeassistant/readme-images/.github/images/config-yaml-snippet.png" width="400" alt="Example config.yaml snippet"/>  
    </details>  
 
 6. Now do a FULL restart Home Assistant instance so the new configuration file and entity is loaded up  
@@ -124,7 +156,7 @@ Command to run
 <!--
 ![image](https://github.com/Protocol789/homeassistant/asse44654683/7e1fd33f-0f9b-4258-8a89-28ffd553f28a)
 -->  
-  <img src="https://raw.githubusercontent.com/Protocol7homeassistant/readme-images/.github/images/ha-fileeditor-restart.png" alt="File Editor restart Home Assistant"/>
+    <img src="https://raw.githubusercontent.com/Protocol789/homeassistant/readme-images/.github/images/ha-fileeditor-restart.png" alt="File Editor restart Home Assistant" width="300"/>
 
 7. Once restarted head over to [Developer Tools States](https://my.home-assistant.io/redirect/developer_states/) and filter for your new entity.  
     
@@ -142,8 +174,8 @@ Command to run
 
 11. New helper template sensor details
 
-    > [!IMPORTANT]
-    > Ensure you reference the name of the sensor you created in [step 6](#step-6) by replacing the `sensor.SensorName`
+> [!IMPORTANT]
+> Ensure you reference the name of the sensor you created in [step 6](#step-6) by replacing the `sensor.SensorName`
 
     The `state template` will be referencing the new entity we created in the configuration.yml and extracting the `balance` attribute out  
 
