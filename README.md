@@ -69,7 +69,7 @@ wget -q https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstr
    ```
   4. Now its time to add the sensor entity into Home Assistant so that the JSON packet can be consumed and eventually visulized.  
   Open up the `configuration.yaml` in [File editor](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_configurator) (click open web gui) or open the file in your favourite text editor
-  6. Place the following yaml into the configuration.yaml file and ensure your update the `$username` and `$pasword` values  
+  6. (#step-6) Place the following yaml into the configuration.yaml file and ensure your update the `$username` and `$pasword` values  
        * The `scan_interval` is set to 30 minutes but can be set to any value you need (in seconds)  
        * The entity `name` can be whatever you like
      
@@ -106,7 +106,7 @@ wget -q https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstr
 ![image](https://github.com/Protocol789/homeassistant/assets/44654683/f6fd64ca-dac3-40f9-9044-b33289a7b3dd)
   12. New helper template sensor details   
 > [!IMPORTANT]
-> Ensure you reference the name of the sensor you created in 6.) by replacing the `sensor.SensorName`
+> Ensure you reference the name of the sensor you created in [step 6](#step-6) by replacing the `sensor.SensorName`
          
       The `state template` will be refercing the new entitiy we created in the configuration.yml and extracting the `balance` attribute out  
       `` {{ state_attr( 'sensor.SensorName' , 'balance' ) }} ``
