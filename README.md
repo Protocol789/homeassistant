@@ -70,42 +70,52 @@ wget -q https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstr
   4. Now its time to add the sensor entity into Home Assistant so that the JSON packet can be consumed and eventually visulized.  
   Open up the `configuration.yaml` in [File editor](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_configurator) (click open web gui) or open the file in your favourite text editor
   
-  <a id="step-6"></a> 6. Place the following yaml into the configuration.yaml file and ensure your update the `$username` and `$pasword` values  
-       * The `scan_interval` is set to 30 minutes but can be set to any value you need (in seconds)  
-       * The entity `name` can be whatever you like
-     
-     Save the file  
-     ```yaml
-     command_line:
-       - sensor:
-           name: Airtel
-           scan_interval: 1800      
-           command: sh /config/AirtelTracker/Airtel_GetBalance.sh $username $password
-           value_template: "{{ value_json.status }}"
-           json_attributes:
-             - message
-             - statusCode
-             - balance
-             - unit
- 
-     ```
-   ![image](https://github.com/Protocol789/homeassistant/assets/44654683/cd6ea0f7-536c-4294-91bd-2c2b150919ea)
-
+  5. Copy the following yaml snippet into Home Assistant's `configuration.yaml` file     <a id="step-6"></a> 
+   > [!IMPORTANT]
+   > Ensure your update the `$username` and `$pasword` values  
+       
+   * The `scan_interval` is set to 30 minutes but can be set to any value you need (in seconds)  
+   * The entity `name` can be whatever you like       
+   Save the file  
+   ```yaml
+   command_line:
+     - sensor:
+         name: Airtel
+         scan_interval: 1800      
+         command: sh /config/AirtelTracker/Airtel_GetBalance.sh $username $password
+         value_template: "{{ value_json.status }}"
+         json_attributes:
+           - message
+           - statusCode
+           - balance
+           - unit
+   ```
+    
+<!-- 
+![image](https://github.com/Protocol789/homeassistant/assets/44654683/cd6ea0f7-536c-4294-91bd-2c2b150919ea)
+-->  
+   <details>
+      <Summary>Example config</Summary>
+      <img src="https://raw.githubusercontent.com/Protocol789/homeassistant/readme-images/.github/config-yaml-snippet.png" width="200"/>  
+   </details>  
+   
   7. Now do a FULL restart Home Assistant instance so the new configuration file and entity is loaded up   
      This can be done directly from File Editor  
+     <!--
      ![image](https://github.com/Protocol789/homeassistant/assets/44654683/7e1fd33f-0f9b-4258-8a89-28ffd553f28a)
+     -->  
+     <img src="https://raw.githubusercontent.com/Protocol789/homeassistant/readme-images/.github/images/ha-fileeditor-restart.png"/>  
 
- 
-  8. Once restarted head over to [Developer Tools States](https://my.home-assistant.io/redirect/developer_states/) and filter for your new entity
+  9. Once restarted head over to [Developer Tools States](https://my.home-assistant.io/redirect/developer_states/) and filter for your new entity
      Note the json attributes now show the total data balance avaliable on your Airtel bundle! 👏 
      ![image](https://github.com/Protocol789/homeassistant/assets/44654683/78f4ed18-cf03-4838-8652-f4b043816e32)
-  9. It's now time to expose the data bundle balance via a [helper entity](https://my.home-assistant.io/redirect/helpers/) which will reference the attribute and allow you to add it to a dashboard
+  10. It's now time to expose the data bundle balance via a [helper entity](https://my.home-assistant.io/redirect/helpers/) which will reference the attribute and allow you to add it to a dashboard
       Click Create Helper in bottom right corner
-  10. Click `Template`  
+  11. Click `Template`  
 ![image](https://github.com/Protocol789/homeassistant/assets/44654683/b45a653d-d400-48fc-b97b-d6c6eb0bcdb1)
-  11. Select `Template a sensor`  
+  12. Select `Template a sensor`  
 ![image](https://github.com/Protocol789/homeassistant/assets/44654683/f6fd64ca-dac3-40f9-9044-b33289a7b3dd)
-  12. New helper template sensor details   
+  13. New helper template sensor details   
 > [!IMPORTANT]
 > Ensure you reference the name of the sensor you created in [step 6](#step-6) by replacing the `sensor.SensorName`
          
