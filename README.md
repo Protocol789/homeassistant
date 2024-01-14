@@ -69,8 +69,8 @@ wget -q https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstr
    ```
   4. Now its time to add the sensor entity into Home Assistant so that the JSON packet can be consumed and eventually visulized.  
   Open up the `configuration.yaml` in [File editor](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_configurator) (click open web gui) or open the file in your favourite text editor
-  <a id="step-6"></a>
-  6. Place the following yaml into the configuration.yaml file and ensure your update the `$username` and `$pasword` values  
+  
+  <a id="step-6"></a> 6. Place the following yaml into the configuration.yaml file and ensure your update the `$username` and `$pasword` values  
        * The `scan_interval` is set to 30 minutes but can be set to any value you need (in seconds)  
        * The entity `name` can be whatever you like
      
