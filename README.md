@@ -30,7 +30,7 @@ AirtelTracker/Airtel_GetBalance.sh $username $password -V
 - Internet access from Home Assistant
 
 
-### Prerequisates 
+### [Prerequisates](#prereq) 
 * Required
     * Home Assistant
     * Your airtel web username and password used to login to [Airtel](https://airtel.co.zm/broadband/#/user/login) broadband portal
@@ -39,7 +39,7 @@ AirtelTracker/Airtel_GetBalance.sh $username $password -V
     * [File editor](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_configurator)
     * [Advanced SSH & Web Terminal](https://my.home-assistant.io/redirect/supervisor_addon/?addon=a0d7b954_ssh)
 
-### Usage 
+### [Usage](#Usage-config)
 In these installation steps, the optional  prerequistates are used however you can use whatever you are most comfortable with
 
 1. Jump into a [terminal](https://my.home-assistant.io/redirect/supervisor_addon/?addon=a0d7b954_ssh ) (click open web gui) session on the Home Assitant instance and move into the `/config` directory via
@@ -104,18 +104,17 @@ wget -q https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstr
 ![image](https://github.com/Protocol789/homeassistant/assets/44654683/b45a653d-d400-48fc-b97b-d6c6eb0bcdb1)
   11. Select `Template a sensor`  
 ![image](https://github.com/Protocol789/homeassistant/assets/44654683/f6fd64ca-dac3-40f9-9044-b33289a7b3dd)
-  12. New sensor details  
-        
-      Fill in a name for the new sensor.  
-       [!IMPORTANT] Ensure you reference the name of the sesnor you created in 6.)  
+  12. New helper template sensor details   
+> [!IMPORTANT]
+> Ensure you reference the name of the sensor you created in 6.) by replacing the `sensor.SensorName`
          
       The `state template` will be refercing the new entitiy we created in the configuration.yml and extracting the `balance` attribute out  
-      `` {{ state_attr( 'sensor.airtel_new' , 'balance' ) }} ``
+      `` {{ state_attr( 'sensor.SensorName' , 'balance' ) }} ``
         
       Select the unit of mesasurement, device class and State class and click `Submit`  
       ![image](https://github.com/Protocol789/homeassistant/assets/44654683/5e44fb54-6e6b-4e30-8559-6669dabc0966)
-  13. Add the new sensor to a dashboard of your choosing!
-  14. ![image](https://github.com/Protocol789/homeassistant/assets/44654683/da959880-cbb5-43d1-80de-d2358bb9be1e)
+  14. Add the new sensor to a dashboard of your choosing!
+  15. ![image](https://github.com/Protocol789/homeassistant/assets/44654683/da959880-cbb5-43d1-80de-d2358bb9be1e)
 
 
 ### Config
