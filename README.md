@@ -129,7 +129,7 @@ Command to run
 7. Once restarted head over to [Developer Tools States](https://my.home-assistant.io/redirect/developer_states/) and filter for your new entity.  
     
     Note the json attributes now show the total data balance available on your Airtel bundle! 👏
-    ![image](https://github.com/Protocol789/homeassistant/assets/44654683/78f4ed18-cf03-4838-8652-f4b043816e32)
+    ![image](https://github.com/Protocol789/homeassistant/assets/44654683/78f4ed18-cf03-4838-8652-f4b043816e32)  
 
 8. It's now time to expose the data bundle balance via a [helper entity](https://my.home-assistant.io/redirect/helpers/) which will reference the attribute and allow you to add it to a dashboard  
     Click Create Helper in bottom right corner
@@ -142,17 +142,23 @@ Command to run
 
 11. New helper template sensor details
 
-> [!IMPORTANT]
-> Ensure you reference the name of the sensor you created in [step 6](#step-6) by replacing the `sensor.SensorName`
+    > [!IMPORTANT]
+    > Ensure you reference the name of the sensor you created in [step 6](#step-6) by replacing the `sensor.SensorName`
 
-The `state template` will be referencing the new entity we created in the configuration.yml and extracting the `balance` attribute out  
-` {{ state_attr( 'sensor.SensorName' , 'balance' ) }} `
+    The `state template` will be referencing the new entity we created in the configuration.yml and extracting the `balance` attribute out  
 
-Select the unit of measurement, device class and state class and click `Submit`  
-      ![image](https://github.com/Protocol789/homeassistant/assets/44654683/5e44fb54-6e6b-4e30-8559-6669dabc0966)
-12. Add the new sensor to a dashboard of your choosing!
+    ` {{ state_attr( 'sensor.SensorName' , 'balance' ) }} `
 
-13. ![image](https://github.com/Protocol789/homeassistant/assets/44654683/da959880-cbb5-43d1-80de-d2358bb9be1e)
+    Select the unit of measurement, device class and state class and click `SUBMIT` buttom  
+
+    <img src="https://raw.githubusercontent.com/Protocol789/homeassistant/readme-images/.github/images/ha-sensor-details.png"  width="200" alt="template sensor details"/> 
+  <!-- ![image](https://github.com/Protocol789/homeassistant/assets/44654683/5e44fb54-6e6b-4e30-8559-6669dabc0966)-->
+
+12. Add the new sensor to a dashboard of your choosing!  
+
+13. Example of entity history 
+<img src="https://raw.githubusercontent.com/Protocol789/homeassistant/readme-images/.github/images/ha-entitiy-balance.png"  width="300" alt="HA entity card popp with history"/> 
+<!-- ![image](https://github.com/Protocol789/homeassistant/assets/44654683/da959880-cbb5-43d1-80de-d2358bb9be1e) -->
 
 ### Config
 
@@ -239,6 +245,6 @@ The scripts were tested on following systems however any *nix system should work
 
 - Ubuntu 22.04.2 LTS (WSL)
 - Home Assistant Operating System (2024)  
-  <img src="https://raw.githubusercontent.com/Protocol789/homeassistant/readme-images/.github/images/ha-version.png"  width="200" alt="Home Assistant version screen"/>  
+  <img src="https://raw.githubusercontent.com/Protocol789/homeassistant/readme-images/.github/images/ha-version.png"  width="400" alt="Home Assistant version screen"/>  
 
     <!-- ![image](https://github.com/Protocol789/homeassistant/assets/44654683/0e5a9973-0c7b-42b6-a1d2-eb812e8a306c) --> 
