@@ -22,7 +22,7 @@ Open your fav *nix terminal
 2. Run the Get balance command below with your Airtel web credentials in place of the $variables below
 
   ```sh
-  AirtelTracker/Airtel_GetBalance.sh $username $password -V
+  AirtelTracker/Airtel_GetBalance.sh $username '$password' -V
   ```
 
 3. Data balances returned in JSON packet  
@@ -65,10 +65,10 @@ wget -q https://raw.githubusercontent.com/Protocol789/homeassistant/main/bootstr
 ```
 
 3. Time to test!  
-Get the Airtel credentials and plug them into the script below where `$username` and `$password` are your Airtel credentials respectively  
+Get the Airtel credentials and plug them into the script below where `$username` and '`$password`' are your Airtel credentials respectively  
   
 Command to run  
-`AirtelTracker/Airtel_GetBalance.sh $username $password -V`  
+`AirtelTracker/Airtel_GetBalance.sh $username '$password' -V`  
 
 #### Response
 
@@ -91,7 +91,7 @@ Command to run
 5. Copy the following yaml snippet into Home Assistant's `configuration.yaml` file     <a id="step-6"></a>
 
 > [!IMPORTANT]
-> Ensure your update the `$username` and `$password` values  
+> Ensure your update the `$username` and `'$password'` values and note that the password must be encpasulated in single quotes '' to avoid special charectors being read by bash
 
 - The `scan_interval` is set to 30 minutes but can be set to any value you need (in seconds)  
 - The entity `name` can be whatever you like
@@ -102,7 +102,7 @@ Command to run
      - sensor:
          name: Airtel
          scan_interval: 1800      
-         command: sh /config/AirtelTracker/Airtel_GetBalance.sh $username $password
+         command: sh /config/AirtelTracker/Airtel_GetBalance.sh $username '$password'
          value_template: "{{ value_json.status }}"
          json_attributes:
            - message
@@ -206,13 +206,13 @@ The base script can be run with a few arguments for logging verbosity.
 #### Run command
 
   ```sh
-    ./Airtel_GetBalance.sh $WebUsername $WebPassword 
+    ./Airtel_GetBalance.sh $WebUsername '$WebPassword' 
   ```
 
 #### Response
 
   ```sh
-  root@zorab-surface:~/Airtel# ./Airtel_GetBalance.sh $WebUsername $WebPassword
+  root@zorab-surface:~/Airtel# ./Airtel_GetBalance.sh $WebUsername '$WebPassword'
   {"balance":"8.46", "unit":"GB", "message":"success", "status":"SUCCESS", "statusCode":200}
   ```
 
@@ -221,11 +221,11 @@ The base script can be run with a few arguments for logging verbosity.
   <details><summary><b>Show informational example</b></summary>
 
   ```sh
-    ./Airtel_GetBalance.sh $WebUsername $WebPassword -V
+    ./Airtel_GetBalance.sh $WebUsername '$WebPassword' -V
   ```
   
   ```sh
-  root@pc:~/Airtel# ./Airtel_GetBalance.sh $WebUsername $WebPassword -V
+  root@pc:~/Airtel# ./Airtel_GetBalance.sh $WebUsername '$WebPassword' -V
   2024-01-12 00:37:54 - INFO ---- Running airtel login call
   2024-01-12 00:37:54 - INFO ---- -------------------------
   2024-01-12 00:37:56 - INFO ---- Login: HTTP response of 200 OK!
@@ -248,11 +248,11 @@ The base script can be run with a few arguments for logging verbosity.
   Replace `$WebUsername` and `$WebPassword` with your Airtel credentials used to login to the website
 
   ```sh
-    ./Airtel_GetBalance.sh $WebUsername $WebPassword -G
+    ./Airtel_GetBalance.sh $WebUsername '$WebPassword' -G
   ```
 
   ```sh
-  root@pc:~/Airtel# ./Airtel_GetBalance.sh $WebUsername $WebPassword -G
+  root@pc:~/Airtel# ./Airtel_GetBalance.sh $WebUsername '$WebPassword' -G
   2024-01-12 00:35:12 - DEBUG --- -G specified: Debug mode
   2024-01-12 00:35:12 - DEBUG --- Variable passed in postion 1: $username
   2024-01-12 00:35:12 - DEBUG --- Variable passed in postion 2: $password
